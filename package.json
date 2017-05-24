@@ -2,11 +2,24 @@
   "name": "peter-rasmussen-website",
   "version": "0.1.0",
   "description": "Peter Rasmussen Website",
-  "main": "index.js",
+  "main": "gulp.babel.js",
   "scripts": {
     "start": "yarn dev",
     "dev": "rm -r ./dist && gulp buildAssets && gulp"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revengecreative/pug-sass-starter-kit.git"
+  },
+  "keywords": [
+    "babel",
+    "bower",
+    "browser-sync",
+    "gulp",
+    "hotreloading",
+    "pug",
+    "sass",
+  ],
   "author": "Davide Palazzo <davide@revengecreative.com>",
   "license": "MIT",
   "devDependencies": {
