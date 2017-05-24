@@ -1,0 +1,169 @@
+@import "variables";
+
+// Breakpoints
+
+$XS:     320px;
+$S:     480px;
+$M:     768px;
+$L:     1024px;
+$XL:     1280px;
+$XXL:     1600px;
+$XXXL:     1920px;
+
+// Media Queries
+
+@mixin MQ($canvas) {
+  @if $canvas == XS {
+   @media only screen and (min-width: $XS) and (max-width: $S) { @content; }
+  }
+  @if $canvas == S {
+   @media only screen and (min-width: $S) and (max-width: $M) { @content; }
+  }
+  @else if $canvas == M {
+   @media only screen and (min-width: $M) and (max-width: $L) { @content; }
+  }
+  @else if $canvas == L {
+   @media only screen and (min-width: $L) and (max-width: $XL) { @content; }
+  }
+  @else if $canvas == XL {
+   @media only screen and (min-width: $XL) and (max-width: $XXL) { @content; }
+  }
+  @else if $canvas == XXL {
+   @media only screen and (min-width: $XXL) and (max-width: $XXXL) { @content; }
+  }
+  @else if $canvas == XXXL {
+   @media only screen and (min-width: $XXXL) { @content; }
+  }
+  @else if $canvas == Mdown {
+    @media only screen and (min-width: $XS) and (max-width: $M) { @content; }
+  }
+  @else if $canvas == Lup {
+    @media only screen and (min-width: $L) { @content; }
+  }
+  @else if $canvas == mqH {
+   @media only screen and (min-width: $XL) { @content; }
+  }
+}
+
+// Center Align Static
+
+@mixin center($xy:xy) {
+  @if $xy == xy {
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    right: auto;
+    transform: translateX(-50%) translateY(-50%);
+  }
+  @else if $xy == x {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+  }
+  @else if $xy == y {
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+  }
+}
+
+// Revenge Creative Gradient
+
+@mixin rcGradient {
+  @include linear-gradient(90deg, $rcGreen, $rcBlue, $rcPurple);
+}
+
+// Font Smoothing
+
+@mixin font-smoothing {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+// Font Weight
+
+@mixin fontW($weight, $fontFamily:"") {
+  $weights: (
+    thin: 100,
+    extra-light: 200,
+    ultra-light: 200,
+    light: 300,
+    normal: 400,
+    book: 400,
+    regular: 400,
+    medium: 500,
+    semi-bold: 600,
+    demi-bold: 600,
+    bold: 700,
+    extra-bold: 800,
+    ultra-bold: 900,
+    heavy: 900,
+    black: 900,
+    ultra: 900,
+    ultra-black: 900,
+    extra-ultra: 900
+  );
+
+  $output: $weight;
+  @if map-has-key($weights, $weight) {
+    $output: map-get($weights, $weight);
+  }
+
+  font-family: #{$fontFamily};
+  font-weight: $output;
+}
+
+// Flexbox Mixin
+
+@mixin displayMode($displayMode) {
+  @if $displayMode == flex { display: flex;}
+  @else if $displayMode == inline-flex { display: inline-flex;}
+  @else { /* Default value */ display: flex; /* Default value */}
+}
+
+@mixin justifyContent($justifyContent) {
+    @if $justifyContent == flex-start { justify-content: flex-start;}
+    @else if $justifyContent == flex-end { justify-content: flex-end;}
+    @else if $justifyContent == center { justify-content: center;}
+    @else if $justifyContent == space-around { justify-content: space-around;}
+    @else if $justifyContent == space-between { justify-content: space-between;}
+    @else if $justifyContent == initial { justify-content: initial;}
+    @else if $justifyContent == inherit { justify-content: inherit;}
+    @else {}
+}
+
+@mixin alignItems($alignItems) {
+    @if $alignItems == flex-start { align-items: flex-start;}
+    @else if $alignItems == flex-end { align-items: flex-end;}
+    @else if $alignItems == center { align-items: center;}
+    @else if $alignItems == stretch { align-items: stretch;}
+    @else if $alignItems == baseline { align-items: baseline;}
+    @else if $alignItems == initial { align-items: initial;}
+    @else if $alignItems == inherit { align-items: inherit;}
+    @else {}
+}
+
+@mixin flexDirection($flexDirection) {
+  @if $flexDirection == row {flex-direction: row;}
+  @else if $flexDirection == row-reverse {flex-direction: row-reverse;}
+  @else if $flexDirection == column {flex-direction: column;}
+  @else if $flexDirection == column-reverse {flex-direction: column-reverse;}
+  @else if $flexDirection == initial {flex-direction: initial;}
+  @else if $flexDirection == inherit {flex-direction: inherit;}
+  @else {}
+}
+
+@mixin flexWrap($flexWrap) {
+  @if $flexWrap == no-wrap {flex-wrap: no-wrap;}
+  @else if $flexWrap == wrap {flex-wrap: wrap;}
+  @else if $flexWrap == wrap-reverse {flex-wrap: wrap-reverse;}
+  @else {}
+}
+
+@mixin flexBox($displayMode: null, $justifyContent: null, $alignItems: null, $flexDirection: null, $flexWrap: null) {
+  @include displayMode($displayMode);
+  @include justifyContent($justifyContent);
+  @include alignItems($alignItems);
+  @include flexDirection($flexDirection);
+  @include flexWrap($flexWrap);
+}

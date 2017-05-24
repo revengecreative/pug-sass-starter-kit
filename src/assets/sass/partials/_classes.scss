@@ -1,0 +1,63 @@
+@import "mixins";
+@import "variables";
+
+$coloursList: (
+  "prRed": $prR,
+  "prDarkGrey": $prDG,
+  "prDarkGrey95": rgba($prDG, .95),
+  "prGrey": $prG,
+  "prLightGrey": $prLG,
+  "prLightGrey95": rgba($prLG, .95),
+  "prLightGrey50": rgba($prLG, .5),
+  "prLightGrey25": rgba($prLG, .25),
+  "prOffWhite95": rgba($prOffWhite, .95),
+  "prOffWhite75": rgba($prOffWhite, .75),
+  "prOffWhite37": rgba($prOffWhite, .37),
+  "prOffWhite": $prOffWhite,
+  "prWhite": $prWhite
+);
+
+@each $className, $colour in $coloursList {
+
+  .#{$className}Bg {
+    background-color: $colour;
+  }
+
+  .#{$className}Text {
+    color: $colour;
+  }
+
+  .#{$className}Fill {
+    fill: $colour;
+  }
+
+  .#{$className}Stroke {
+    stroke: $colour;
+    fill: none;
+  }
+}
+
+$values: (12: 12, 25: 25, 50: 50, 100: 100);
+
+@each $key, $val in $values {
+
+  .margin#{$key} {
+    margin: $val+px;
+  }
+
+  .marginTop#{$key} {
+    margin-top: $val+px;
+  }
+
+  .marginRight#{$key} {
+    margin-right: $val+px;
+  }
+
+  .marginLeft#{$key} {
+    margin-left: $val+px;
+  }
+
+  .marginBottom#{$key} {
+    margin-bottom: $val+px;
+  }
+}

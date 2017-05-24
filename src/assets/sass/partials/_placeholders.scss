@@ -1,0 +1,42 @@
+@import "mixins";
+@import "variables";
+
+%debug {
+  border: 2px solid tomato;
+}
+
+%transition {
+  transition: all .4s ease-in;
+}
+
+%transition_02 {
+  transition: all .2s ease-in;
+}
+
+%pseudo_content {
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+%pseudo_content_basic {
+  content: '';
+  position: absolute;
+}
+
+%pseudo_content_noPositions {
+  content: '';
+  position: absolute;
+  height: 100%;
+  width: 100%;
+}
+
+%pseudo_content_noDim {
+  content: '';
+  position: absolute;
+  top:0;
+  left: 0;
+}
