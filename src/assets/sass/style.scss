@@ -3,5 +3,25 @@
 @import "typography/typography";
 
 body {
-  background-color: blue;
+  background-image: linear-gradient(to bottom, #f0fff0 0%, #f0fff0 50%, #7fffd4 50%, #7fffd4 100%);
+  @include flexBox(flex, center, center);
+  width: 100vw;
+  height: 100vh;
+}
+
+.demo {
+  background-color: honeydew;
+  font-family: sans-serif;
+  @include flexBox(flex, center, center);
+  padding: 50px;
+  max-width: 70vw;
+  box-shadow: 0 25px 50px -10px teal;
+  border-radius: 2px;
+
+  & h1 {
+    color: teal;
+    font-family: sans-serif;
+    font-weight: 100;
+    font-size: calc(42px + .5vw);
+  }
 }
