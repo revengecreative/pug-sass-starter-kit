@@ -1,7 +1,7 @@
 {
-  "name": "peter-rasmussen-website",
+  "name": "pug-sass-starter-kit",
   "version": "0.1.0",
-  "description": "Peter Rasmussen Website",
+  "description": "Pug SASS Starter Kit",
   "main": "gulp.babel.js",
   "scripts": {
     "start": "yarn dev",
