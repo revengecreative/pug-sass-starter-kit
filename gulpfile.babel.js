@@ -33,10 +33,11 @@ gulp.task('serve', ['sass','templates'], () => {
 gulp.task('sass', () => {
   return gulp.src(`${src}/assets/sass/**/*.scss`)
     .pipe(plumber({
-      errorHandler: (error) => {
+      errorHandler: function(error) {
         console.log(error.message);
         this.emit('end');
-    }}))
+      }
+    }))
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle : 'compressed'}))
     .pipe(prefix('last 15 version', '> 1%', 'ie 8', 'ie 7'))
